@@ -101494,13 +101494,14 @@ exports.default = new p5_1.default(function (s) {
     cutoffP.addClass("sliderText");
     cutoffSlider = s.createSlider(2, 20, 3, 0.5).parent(sliderDiv);
     cutoffSlider.addClass("slider");
-    var lenOfBranchP = s.createP("change the length subtraction of each branch").parent(sliderDiv);
+    var lenOfBranchP = s.createP("change the length subtraction of each branch").parent(sliderDiv).addClass("sliderText");
     cutoffP.addClass("sliderText");
     lenOfBranch = s.createSlider(0.1, 0.7, 0.68, 0.01).parent(sliderDiv);
     lenOfBranch.addClass("slider");
   };
 
   var branch = function branch(len, greenCol) {
+    var arr = [];
     var angle = slider.value();
     var cutoff = cutoffSlider.value();
     var reduction = lenOfBranch.value();
@@ -101556,7 +101557,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58857" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

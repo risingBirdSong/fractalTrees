@@ -20,12 +20,14 @@ export default new p5((s: p5) => {
     cutoffSlider.addClass("slider");
     const lenOfBranchP = s
       .createP("change the length subtraction of each branch")
-      .parent(sliderDiv);
+      .parent(sliderDiv)
+      .addClass("sliderText");
     cutoffP.addClass("sliderText");
     lenOfBranch = s.createSlider(0.1, 0.7, 0.68, 0.01).parent(sliderDiv);
     lenOfBranch.addClass("slider");
   };
   const branch = function (len: number, greenCol: number) {
+    let arr: any[] = [];
     let angle = slider.value() as number;
     let cutoff = cutoffSlider.value() as number;
     let reduction = lenOfBranch.value() as number;
