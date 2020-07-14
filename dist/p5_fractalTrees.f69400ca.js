@@ -101505,6 +101505,7 @@ exports.default = new p5_1.default(function (s) {
     var cutoff = cutoffSlider.value();
     var reduction = lenOfBranch.value();
     s.line(0, 0, 0, -len);
+    s.strokeWeight(len / 10);
     s.translate(0, -len);
 
     if (len > cutoff) {

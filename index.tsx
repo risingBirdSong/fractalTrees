@@ -30,6 +30,7 @@ export default new p5((s: p5) => {
     let cutoff = cutoffSlider.value() as number;
     let reduction = lenOfBranch.value() as number;
     s.line(0, 0, 0, -len);
+    s.strokeWeight(len / 10);
     s.translate(0, -len);
     if (len > cutoff) {
       s.push();
