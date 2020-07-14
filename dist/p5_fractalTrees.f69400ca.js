@@ -101487,6 +101487,13 @@ exports.default = new p5_1.default(function (s) {
   var branch = function branch(len) {
     s.line(0, 0, 0, -len);
     s.translate(0, -len);
+
+    if (len > 1) {
+      s.push();
+      s.rotate(67);
+      branch(len * 0.67);
+      s.pop();
+    }
   };
 
   s.draw = function () {

@@ -8,6 +8,12 @@ export default new p5((s: p5) => {
   const branch = function (len: number) {
     s.line(0, 0, 0, -len);
     s.translate(0, -len);
+    if (len > 1) {
+      s.push();
+      s.rotate(67);
+      branch(len * 0.67);
+      s.pop();
+    }
   };
   s.draw = function () {
     s.background(100);
