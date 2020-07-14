@@ -101488,9 +101488,13 @@ exports.default = new p5_1.default(function (s) {
     s.line(0, 0, 0, -len);
     s.translate(0, -len);
 
-    if (len > 1) {
+    if (len > 5) {
       s.push();
       s.rotate(67);
+      branch(len * 0.67);
+      s.pop();
+      s.push();
+      s.rotate(-67);
       branch(len * 0.67);
       s.pop();
     }
@@ -101498,7 +101502,7 @@ exports.default = new p5_1.default(function (s) {
 
   s.draw = function () {
     s.background(100);
-    s.translate(s.width / 2, s.height);
+    s.translate(s.width / 2, s.height - 100);
     branch(200);
     s.stroke(255);
   };
