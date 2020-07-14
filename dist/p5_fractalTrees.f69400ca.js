@@ -101480,32 +101480,41 @@ var p5_1 = __importDefault(require("p5"));
 exports.default = new p5_1.default(function (s) {
   var mainPos;
   var slider;
+  var cutoffSlider;
+  var lenOfBranch;
 
   s.setup = function setup() {
     mainPos = s.createCanvas(800, 800);
+    var angleP = s.createP("change the angle");
     slider = s.createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001);
+    var cutoffP = s.createP("change the cutoff");
+    cutoffSlider = s.createSlider(2, 20, 10, 0.5);
+    var cutoffP = s.createP("change the length subtraction of each branch");
+    lenOfBranch = s.createSlider(0.1, 0.7, 0.67, 0.01);
   };
 
   var branch = function branch(len) {
     var angle = slider.value();
+    var cutoff = cutoffSlider.value();
+    var reduction = lenOfBranch.value();
     s.line(0, 0, 0, -len);
     s.translate(0, -len);
 
-    if (len > 5) {
+    if (len > cutoff) {
       s.push();
       s.rotate(angle);
-      branch(len * 0.67);
+      branch(len * reduction);
       s.pop();
       s.push();
       s.rotate(-angle);
-      branch(len * 0.67);
+      branch(len * reduction);
       s.pop();
     }
   };
 
   s.draw = function () {
     s.background(100);
-    s.translate(s.width / 2, s.height - 100);
+    s.translate(s.width / 2, s.height);
     branch(200);
     s.stroke(255);
   };
