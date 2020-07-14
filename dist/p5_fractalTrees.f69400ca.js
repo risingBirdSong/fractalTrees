@@ -101485,12 +101485,19 @@ exports.default = new p5_1.default(function (s) {
 
   s.setup = function setup() {
     mainPos = s.createCanvas(800, 800);
-    var angleP = s.createP("change the angle");
-    slider = s.createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001);
-    var cutoffP = s.createP("change the cutoff");
-    cutoffSlider = s.createSlider(2, 20, 10, 0.5);
-    var cutoffP = s.createP("change the length subtraction of each branch");
-    lenOfBranch = s.createSlider(0.1, 0.7, 0.67, 0.01);
+    var sliderDiv = s.createDiv().addClass("sliderDiv");
+    var angleP = s.createP("change the angle").parent(sliderDiv);
+    angleP.addClass("sliderText");
+    slider = s.createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001).parent(sliderDiv);
+    slider.addClass("slider");
+    var cutoffP = s.createP("change the cutoff").parent(sliderDiv);
+    cutoffP.addClass("sliderText");
+    cutoffSlider = s.createSlider(2, 20, 10, 0.5).parent(sliderDiv);
+    cutoffSlider.addClass("slider");
+    var lenOfBranchP = s.createP("change the length subtraction of each branch").parent(sliderDiv);
+    cutoffP.addClass("sliderText");
+    lenOfBranch = s.createSlider(0.1, 0.7, 0.67, 0.01).parent(sliderDiv);
+    lenOfBranch.addClass("slider");
   };
 
   var branch = function branch(len) {

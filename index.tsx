@@ -7,12 +7,23 @@ export default new p5((s: p5) => {
   let lenOfBranch: p5.Element;
   s.setup = function setup() {
     mainPos = s.createCanvas(800, 800);
-    const angleP = s.createP("change the angle");
-    slider = s.createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001);
-    const cutoffP = s.createP("change the cutoff");
-    cutoffSlider = s.createSlider(2, 20, 10, 0.5);
-    const cutoffP = s.createP("change the length subtraction of each branch");
-    lenOfBranch = s.createSlider(0.1, 0.7, 0.67, 0.01);
+    const sliderDiv = s.createDiv().addClass("sliderDiv");
+    const angleP = s.createP("change the angle").parent(sliderDiv);
+    angleP.addClass("sliderText");
+    slider = s
+      .createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001)
+      .parent(sliderDiv);
+    slider.addClass("slider");
+    const cutoffP = s.createP("change the cutoff").parent(sliderDiv);
+    cutoffP.addClass("sliderText");
+    cutoffSlider = s.createSlider(2, 20, 10, 0.5).parent(sliderDiv);
+    cutoffSlider.addClass("slider");
+    const lenOfBranchP = s
+      .createP("change the length subtraction of each branch")
+      .parent(sliderDiv);
+    cutoffP.addClass("sliderText");
+    lenOfBranch = s.createSlider(0.1, 0.7, 0.67, 0.01).parent(sliderDiv);
+    lenOfBranch.addClass("slider");
   };
   const branch = function (len: number) {
     let angle = slider.value() as number;
