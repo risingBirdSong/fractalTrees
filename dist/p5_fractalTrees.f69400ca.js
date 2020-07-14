@@ -101479,22 +101479,25 @@ var p5_1 = __importDefault(require("p5"));
 
 exports.default = new p5_1.default(function (s) {
   var mainPos;
+  var slider;
 
   s.setup = function setup() {
     mainPos = s.createCanvas(800, 800);
+    slider = s.createSlider(0.03, s.PI / 1.33, s.PI / 4, 0.001);
   };
 
   var branch = function branch(len) {
+    var angle = slider.value();
     s.line(0, 0, 0, -len);
     s.translate(0, -len);
 
     if (len > 5) {
       s.push();
-      s.rotate(45);
+      s.rotate(angle);
       branch(len * 0.67);
       s.pop();
       s.push();
-      s.rotate(-45);
+      s.rotate(-angle);
       branch(len * 0.67);
       s.pop();
     }
