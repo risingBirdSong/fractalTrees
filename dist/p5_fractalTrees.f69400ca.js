@@ -101490,11 +101490,11 @@ exports.default = new p5_1.default(function (s) {
 
     if (len > 5) {
       s.push();
-      s.rotate(67);
+      s.rotate(45);
       branch(len * 0.67);
       s.pop();
       s.push();
-      s.rotate(-67);
+      s.rotate(-45);
       branch(len * 0.67);
       s.pop();
     }

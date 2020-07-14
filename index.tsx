@@ -10,11 +10,11 @@ export default new p5((s: p5) => {
     s.translate(0, -len);
     if (len > 5) {
       s.push();
-      s.rotate(67);
+      s.rotate(45);
       branch(len * 0.67);
       s.pop();
       s.push();
-      s.rotate(-67);
+      s.rotate(-45);
       branch(len * 0.67);
       s.pop();
     }
